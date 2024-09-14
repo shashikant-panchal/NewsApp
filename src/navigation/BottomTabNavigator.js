@@ -28,7 +28,7 @@ const BottomTabNavigator = () => {
               iconName = 'account';
             }
 
-            return <Icon name={iconName} size={35} color={color} />;
+            return <Icon name={iconName} size={40} color={color} />;
           },
           tabBarStyle: styles.tabBar,
           tabBarShowLabel: false,
