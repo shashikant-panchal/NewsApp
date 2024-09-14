@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   selectedTab: {
-    backgroundColor: '#007BFF',
+    backgroundColor: 'black',
   },
   tabText: {
     fontWeight: '600',
