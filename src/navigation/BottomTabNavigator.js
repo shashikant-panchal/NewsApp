@@ -5,6 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import DiscoverScreen from '../screens/DiscoverScreen';
 import SavedScreen from '../screens/SavedScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import AddPostScreen from '../screens/AddPostScreen';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {StyleSheet} from 'react-native';
 
@@ -26,7 +27,10 @@ const BottomTabNavigator = () => {
               iconName = 'bookmark-outline';
             } else if (route.name === 'Profile') {
               iconName = 'account-outline';
+            } else if (route.name === 'AddPost') {
+              iconName = 'plus-circle-outline';
             }
+
             return (
               <Icon
                 name={iconName}
@@ -42,6 +46,7 @@ const BottomTabNavigator = () => {
         })}>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Discover" component={DiscoverScreen} />
+        <Tab.Screen name="AddPost" component={AddPostScreen} />
         <Tab.Screen name="Saved" component={SavedScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
       </Tab.Navigator>
