@@ -15,7 +15,7 @@ const BottomTabNavigator = () => {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({route}) => ({
-          tabBarIcon: ({color}) => {
+          tabBarIcon: ({color, focused}) => {
             let iconName;
 
             if (route.name === 'Home') {
@@ -27,8 +27,13 @@ const BottomTabNavigator = () => {
             } else if (route.name === 'Profile') {
               iconName = 'account';
             }
-
-            return <Icon name={iconName} size={40} color={color} />;
+            return (
+              <Icon
+                name={iconName}
+                size={40}
+                color={focused ? 'white' : color}
+              />
+            );
           },
           tabBarStyle: styles.tabBar,
           tabBarShowLabel: false,
@@ -53,7 +58,7 @@ const styles = StyleSheet.create({
     elevation: 0,
     borderRadius: 35,
     height: 80,
-    backgroundColor: '#ffffff',
+    backgroundColor: 'black',
     ...shadow,
   },
   tabBarItem: {
