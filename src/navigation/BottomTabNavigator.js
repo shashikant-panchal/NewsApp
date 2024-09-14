@@ -19,13 +19,13 @@ const BottomTabNavigator = () => {
             let iconName;
 
             if (route.name === 'Home') {
-              iconName = 'home';
+              iconName = 'home-outline';
             } else if (route.name === 'Discover') {
-              iconName = 'compass';
+              iconName = 'compass-outline';
             } else if (route.name === 'Saved') {
-              iconName = 'bookmark';
+              iconName = 'bookmark-outline';
             } else if (route.name === 'Profile') {
-              iconName = 'account';
+              iconName = 'account-outline';
             }
             return (
               <Icon
