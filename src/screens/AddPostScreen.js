@@ -8,43 +8,41 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import CustomDropdown from '../components/CustomDropDown';
 
 const AddPostScreen = () => {
-  const [selectedType, setSelectedType] = useState('type1');
-  const [selectedCategory, setSelectedCategory] = useState('category1');
+  const [selectedType, setSelectedType] = useState('Type 1');
+  const [selectedCategory, setSelectedCategory] = useState('Category 1');
+
+  const typeOptions = [
+    {label: 'Type 1', value: 'Type 1'},
+    {label: 'Type 2', value: 'Type 2'},
+    {label: 'Type 3', value: 'Type 3'},
+  ];
+
+  const categoryOptions = [
+    {label: 'Category 1', value: 'Category 1'},
+    {label: 'Category 2', value: 'Category 2'},
+    {label: 'Category 3', value: 'Category 3'},
+  ];
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.header}>Create a New Post</Text>
 
-      <View style={styles.pickerContainer}>
-        <Text style={styles.pickerLabel}>Select Type</Text>
-        <View style={styles.picker}>
-          <Picker
-            selectedValue={selectedType}
-            onValueChange={itemValue => setSelectedType(itemValue)}
-            style={styles.pickerComponent}>
-            <Picker.Item label="Type 1" value="type1" />
-            <Picker.Item label="Type 2" value="type2" />
-            <Picker.Item label="Type 3" value="type3" />
-          </Picker>
-        </View>
-      </View>
+      <CustomDropdown
+        label="Select Type"
+        options={typeOptions}
+        selectedValue={selectedType}
+        onValueChange={setSelectedType}
+      />
 
-      <View style={styles.pickerContainer}>
-        <Text style={styles.pickerLabel}>Select Category</Text>
-        <View style={styles.picker}>
-          <Picker
-            selectedValue={selectedCategory}
-            onValueChange={itemValue => setSelectedCategory(itemValue)}
-            style={styles.pickerComponent}>
-            <Picker.Item label="Category 1" value="category1" />
-            <Picker.Item label="Category 2" value="category2" />
-            <Picker.Item label="Category 3" value="category3" />
-          </Picker>
-        </View>
-      </View>
+      <CustomDropdown
+        label="Select Category"
+        options={categoryOptions}
+        selectedValue={selectedCategory}
+        onValueChange={setSelectedCategory}
+      />
 
       <TextInput
         style={styles.input}
@@ -85,25 +83,6 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     textAlign: 'center',
     color: '#000',
-  },
-  pickerContainer: {
-    marginBottom: 20,
-  },
-  pickerLabel: {
-    fontSize: 18,
-    marginBottom: 10,
-    color: '#000',
-  },
-  picker: {
-    height: 60,
-    borderColor: '#ddd',
-    borderWidth: 1,
-    borderRadius: 12,
-    backgroundColor: '#f5f5f5',
-  },
-  pickerComponent: {
-    height: 60,
-    width: '100%',
   },
   input: {
     height: 60,
